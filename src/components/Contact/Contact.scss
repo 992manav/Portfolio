@@ -1,0 +1,120 @@
+:root {
+  font-size: 16px;
+}
+
+.contact {
+  background-color: inherit;
+  height: 100%;
+  margin: auto;
+  max-width: 1366px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1.25rem;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.contact .textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  box-sizing: border-box;
+}
+
+.contact .textContainer h1 {
+  font-size: 3.125rem;
+  margin: 0;
+}
+
+.contact .FormContainer {
+  flex: 1;
+  padding: 1.25rem;
+  box-sizing: border-box;
+}
+
+.contact .FormContainer form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.contact .FormContainer input[type="text"],
+.contact .FormContainer input[type="email"],
+.contact .FormContainer textarea {
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 1rem;
+  color: #333;
+  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  width: 80%;
+  box-sizing: border-box;
+}
+
+.contact .FormContainer input[type="text"]:focus,
+.contact .FormContainer input[type="email"]:focus,
+.contact .FormContainer textarea:focus {
+  outline: none;
+}
+
+.contact .FormContainer button[type="submit"] {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  border: none;
+  color: #fff;
+  background-color: blue;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 80%;
+}
+
+@media (max-width: 768px) {
+  .contact {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contact .textContainer,
+  .contact .FormContainer {
+    flex: none;
+    width: 100%;
+    background-color: inherit;
+  }
+
+  .contact .textContainer {
+    gap: 1.875rem;
+    padding: 1.125rem;
+  }
+
+  .contact .textContainer h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 531px) {
+  .contact {
+    padding: 0.75rem;
+  }
+
+  .contact .textContainer {
+    gap: 1rem;
+    padding: 0.75rem;
+  }
+
+  .contact .textContainer h1 {
+    font-size: 1.5rem;
+  }
+
+  .contact .FormContainer {
+    padding: 0.75rem;
+  }
+
+  .contact .FormContainer form {
+    gap: 1rem;
+  }
+}

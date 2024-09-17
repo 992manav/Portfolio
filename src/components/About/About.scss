@@ -1,0 +1,47 @@
+#wrapper-canvas {
+  position: absolute;
+  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 100vh;
+  z-index: -1;
+}
+
+.about-me {
+  font-family: Arial, sans-serif;
+  color: bisque;
+  height: 100vh;
+  padding: 2rem;
+  max-width: 90%;
+  margin: 0 auto;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-me-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.about-me-header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.about-me-introduction,
+.about-me-education {
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.about-me-introduction h2,
+.about-me-education h2,
+.about-me-introduction li,
+.about-me-education li {
+  pointer-events: auto;
+}

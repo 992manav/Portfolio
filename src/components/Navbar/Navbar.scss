@@ -1,0 +1,29 @@
+.Navbar {
+  height: 100px;
+  // background-color: yellow;
+  .wrapper {
+    max-width: 80%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: inherit;
+    height: 100%;
+    span {
+      font-weight: bold;
+      color: black;
+      font-size: 30px;
+
+      img {
+        object-fit: contain;
+        height: 130px;
+        margin-left: 0;
+      }
+    }
+
+    .socials {
+      display: flex;
+      gap: 20px;
+    }
+  }
+}

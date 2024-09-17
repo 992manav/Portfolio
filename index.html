@@ -11,11 +11,14 @@
       rel="stylesheet"
     />
     <title>Vite + React</title>
-    <script src="./matter.js" defer></script>
+    <!-- Removed defer from matter.js as it's not used as a module -->
+    <script src="./matter.js" type="module"></script>
   </head>
   <body>
     <div id="root"></div>
+    <!-- Your main React app entry point -->
     <script type="module" src="/src/main.jsx"></script>
+    <!-- External libraries -->
     <script
       src="https://code.jquery.com/jquery-3.6.0.js"
       integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="

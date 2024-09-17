@@ -10,7 +10,6 @@ import Cursor from "./components/Cursor/Cursor.jsx";
 import About from "./components/About/About.jsx";
 import Loader from "./components/Loader/Loader.jsx";
 import Tool from "./components/Tools/Tools.jsx";
-import { LoadingOverlay } from "@mantine/core";
 
 export default function App() {
   const [loading, setLoading] = useState(true);

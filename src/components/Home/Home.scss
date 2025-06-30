@@ -6,6 +6,8 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   overflow: hidden;
+  align-items: center;
+  padding: 1rem;
 }
 
 .wrapper {
@@ -33,15 +35,28 @@
   font-size: 6vw;
 }
 
+.buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
 .buttons button {
   padding: 1rem 2rem;
   border: 2px solid white;
   border-radius: 0.5rem;
   background-color: transparent;
   color: white;
-  margin-right: 1rem;
   font-size: 1rem;
   cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.buttons button:hover {
+  background-color: white;
+  color: black;
+  transform: scale(1.05);
 }
 
 .imageContainer {
@@ -60,49 +75,91 @@
   object-fit: contain;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .text-container h1 {
-    font-size: 3vw;
-  }
-
-  .text-container p {
     font-size: 5vw;
   }
 
-  .buttons button {
-    padding: 0.5rem 1rem;
+  .text-container p {
+    font-size: 7vw;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+  .hero {
+    height: auto;
+    min-height: calc(100vh - 80px);
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+  
+  .wrapper {
+    max-width: 100%;
+    order: 2;
+  }
+  
+  .imageContainer {
+    max-width: 100%;
+    order: 1;
+    margin-bottom: 2rem;
+  }
+
   .text-container {
-    width: 100%;
-    padding: 1rem;
-    box-sizing: border-box;
+    text-align: center;
+    padding: 1rem 0;
   }
 
   .text-container h1 {
     font-size: 8vw;
-    text-align: center;
   }
 
   .text-container p {
-    font-size: 10vw;
-    text-align: center;
+    font-size: 6vw;
   }
 
   .buttons {
-    text-align: center;
-    margin-top: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
   }
 
   .buttons button {
-    padding: 0.5rem 1rem;
-    margin: 0.5rem;
-    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 1rem 0.5rem;
+  }
+
+  .text-container {
+    padding: 0.5rem;
+  }
+
+  .text-container h1 {
+    font-size: 10vw;
+    letter-spacing: 0.2vw;
+  }
+
+  .text-container p {
+    font-size: 4vw;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .buttons button {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.8rem;
+    width: 80%;
+    max-width: 200px;
   }
 
   .imageContainer {
-    display: none;
+    margin-bottom: 1rem;
   }
 }

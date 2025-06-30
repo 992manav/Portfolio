@@ -1,14 +1,19 @@
 .Navbar {
   height: 100px;
-  // background-color: yellow;
+  width: 100%;
+  position: relative;
+  z-index: 1000;
+  
   .wrapper {
-    max-width: 80%;
+    max-width: 90%;
     margin: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: inherit;
     height: 100%;
+    padding: 0 1rem;
+    
     span {
       font-weight: bold;
       color: black;
@@ -23,7 +28,61 @@
 
     .socials {
       display: flex;
-      gap: 20px;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .Navbar {
+    height: 80px;
+    
+    .wrapper {
+      max-width: 95%;
+      padding: 0 0.5rem;
+      
+      span {
+        font-size: 24px;
+        
+        img {
+          height: 80px;
+        }
+      }
+      
+      .socials {
+        gap: 10px;
+        
+        a {
+          width: 35px !important;
+          height: 35px !important;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .Navbar {
+    height: 70px;
+    
+    .wrapper {
+      span {
+        font-size: 20px;
+        
+        img {
+          height: 60px;
+        }
+      }
+      
+      .socials {
+        gap: 8px;
+        
+        a {
+          width: 30px !important;
+          height: 30px !important;
+        }
+      }
     }
   }
 }

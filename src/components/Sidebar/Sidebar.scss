@@ -1,8 +1,4 @@
 .sidebar {
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
-  // justify-content: center;
   color: black;
 
   .bg {
@@ -25,14 +21,22 @@
       justify-content: space-evenly;
       align-items: center;
       background-color: inherit;
-      // padding: 10px;
       cursor: pointer;
 
       a {
         font-size: 40px;
+        transition: all 0.3s ease;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+      }
+
+      a:hover {
+        background-color: #f0f0f0;
+        transform: scale(1.05);
       }
     }
   }
+  
   button {
     width: 50px;
     height: 50px;
@@ -43,5 +47,63 @@
     background-color: transparent;
     cursor: pointer;
     z-index: 9999;
+    border: 2px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    .bg {
+      width: 300px;
+
+      .links {
+        gap: 15px;
+
+        a {
+          font-size: 32px;
+          padding: 0.4rem 0.8rem;
+        }
+      }
+    }
+
+    button {
+      width: 45px;
+      height: 45px;
+      top: 20px;
+      left: 20px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    .bg {
+      width: 250px;
+
+      .links {
+        gap: 12px;
+
+        a {
+          font-size: 28px;
+          padding: 0.3rem 0.6rem;
+        }
+      }
+    }
+
+    button {
+      width: 40px;
+      height: 40px;
+      top: 15px;
+      left: 15px;
+    }
   }
 }

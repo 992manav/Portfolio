@@ -78,7 +78,7 @@ const Home = () => {
         >
           <motion.h1 variants={childVariants}>Manav Desai</motion.h1>
           <motion.p variants={childVariants}>
-            <div style={{ fontSize: "80px", fontWeight: "bold" }}>
+            <div className="typewriter-container">
               I'm a{" "}
               <Typewriter
                 words={[

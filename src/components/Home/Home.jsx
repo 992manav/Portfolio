@@ -2,24 +2,21 @@ import React from "react";
 import { motion } from "framer-motion";
 import "./Home.scss";
 import { Typewriter } from "react-simple-typewriter";
+
 const textVariants = {
   initial: {
     x: 500,
     opacity: 0,
     scale: 0.9,
-    rotate: 15,
   },
   animate: {
     x: 0,
     opacity: 1,
     scale: 1,
-    rotate: 0,
     transition: {
-      duration: 1,
-      staggerChildren: 0.3,
+      duration: 0.8,
+      staggerChildren: 0.2,
       ease: "easeOut",
-      type: "spring",
-      bounce: 0.3,
     },
   },
 };
@@ -47,9 +44,9 @@ const imageVariants = {
   animate: {
     x: 0,
     opacity: 1,
-    scale: 1.1,
+    scale: 1,
     transition: {
-      duration: 0.9,
+      duration: 0.8,
       ease: "easeOut",
     },
   },
@@ -98,24 +95,21 @@ const Home = () => {
               />
             </div>
           </motion.p>
-          {/* <a href="https://www.manavdesai.com/resume" target="_blank" rel="noopener noreferrer">
-            View My Resume
-          </a> */}
 
           <div className="buttons">
             <motion.a
               href="#Projects"
               variants={childVariants}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
               <button>See the Latest Work</button>
             </motion.a>
             <motion.a
               href="#Contacts"
               variants={childVariants}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
               <button>Contact Me</button>
             </motion.a>

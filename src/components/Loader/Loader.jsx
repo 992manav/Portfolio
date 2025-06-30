@@ -13,7 +13,7 @@ const Loader = () => {
             <div className="control maximize" />
           </div>
         </div>
-        <div className="text">Loading... Please Wait</div>
+        <div className="text">Loading...</div>
       </div>
     </StyledWrapper>
   );
@@ -26,22 +26,7 @@ const StyledWrapper = styled.div`
     }
   }
 
-  @keyframes typeAndDelete {
-    0%,
-    10% {
-      width: 0;
-    }
-    45%,
-    55% {
-      width: 12.4em;
-    } /* adjust width based on content */
-    90%,
-    100% {
-      width: 0;
-    }
-  }
-
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,9 +37,9 @@ const StyledWrapper = styled.div`
     background-color: #1a1a1a;
     color: #0f0;
     font-family: "Courier New", Courier, monospace;
-    font-size: 2em; /* Increased size */
-    padding: 3em 2em; /* Increased padding */
-    width: 30em; /* Increased width */
+    font-size: 2em;
+    padding: 3em 2em;
+    width: 30em;
     margin: auto;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
     border-radius: 8px;
@@ -68,11 +53,11 @@ const StyledWrapper = styled.div`
     top: 0;
     left: 0;
     right: 0;
-    height: 3em; /* Increased height */
+    height: 3em;
     background-color: #333;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    padding: 0 0.8em; /* Increased padding */
+    padding: 0 0.8em;
     box-sizing: border-box;
   }
 
@@ -82,8 +67,8 @@ const StyledWrapper = styled.div`
 
   .control {
     display: inline-block;
-    width: 1em; /* Increased size */
-    height: 1em; /* Increased size */
+    width: 1em;
+    height: 1em;
     margin-left: 0.6em;
     border-radius: 50%;
     background-color: #777;
@@ -105,17 +90,16 @@ const StyledWrapper = styled.div`
     float: left;
     line-height: 3em;
     color: #eee;
-    font-size: 1.5em; /* Increased title size */
+    font-size: 1.5em;
   }
 
   .text {
     display: inline-block;
     white-space: nowrap;
     overflow: hidden;
-    border-right: 0.3em solid green; /* Cursor size */
-    animation: typeAndDelete 4s steps(11) infinite,
-      blinkCursor 0.5s step-end infinite alternate;
-    margin-top: 3em; /* Increased margin */
+    border-right: 0.3em solid green;
+    animation: blinkCursor 1s step-end infinite;
+    margin-top: 3em;
     font-size: 1.5em;
   }
 `;

@@ -1,5 +1,5 @@
 .Navbar {
-  height: 100px;
+  height: 80px;
   width: 100%;
   position: relative;
   z-index: 1000;
@@ -21,14 +21,14 @@
 
       img {
         object-fit: contain;
-        height: 130px;
+        height: 60px;
         margin-left: 0;
       }
     }
 
     .socials {
       display: flex;
-      gap: 15px;
+      gap: 12px;
       flex-wrap: wrap;
       align-items: center;
     }
@@ -37,7 +37,7 @@
 
 @media (max-width: 768px) {
   .Navbar {
-    height: 80px;
+    height: 70px;
     
     .wrapper {
       max-width: 95%;
@@ -47,7 +47,35 @@
         font-size: 24px;
         
         img {
-          height: 60px;
+          height: 50px;
+        }
+      }
+      
+      .socials {
+        gap: 8px;
+        
+        a {
+          width: 32px !important;
+          height: 32px !important;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .Navbar {
+    height: 60px;
+    
+    .wrapper {
+      max-width: 98%;
+      padding: 0 0.25rem;
+      
+      span {
+        font-size: 20px;
+        
+        img {
+          height: 40px;
         }
       }
       
@@ -63,37 +91,9 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 375px) {
   .Navbar {
-    height: 70px;
-    
-    .wrapper {
-      max-width: 98%;
-      padding: 0 0.25rem;
-      
-      span {
-        font-size: 20px;
-        
-        img {
-          height: 45px;
-        }
-      }
-      
-      .socials {
-        gap: 4px;
-        
-        a {
-          width: 24px !important;
-          height: 24px !important;
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 360px) {
-  .Navbar {
-    height: 60px;
+    height: 55px;
     
     .wrapper {
       span {
@@ -105,11 +105,11 @@
       }
       
       .socials {
-        gap: 3px;
+        gap: 4px;
         
         a {
-          width: 20px !important;
-          height: 20px !important;
+          width: 24px !important;
+          height: 24px !important;
         }
       }
     }

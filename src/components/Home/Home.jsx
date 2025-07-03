@@ -5,14 +5,12 @@ import { Typewriter } from "react-simple-typewriter";
 
 const textVariants = {
   initial: {
-    x: 500,
+    y: 50,
     opacity: 0,
-    scale: 0.9,
   },
   animate: {
-    x: 0,
+    y: 0,
     opacity: 1,
-    scale: 1,
     transition: {
       duration: 0.8,
       staggerChildren: 0.2,
@@ -23,28 +21,26 @@ const textVariants = {
 
 const childVariants = {
   initial: {
-    x: -50,
+    y: 30,
     opacity: 0,
   },
   animate: {
-    x: 0,
+    y: 0,
     opacity: 1,
     transition: {
-      duration: 0.5,
+      duration: 0.6,
     },
   },
 };
 
 const imageVariants = {
   initial: {
-    x: -500,
+    scale: 0.8,
     opacity: 0,
-    scale: 0.9,
   },
   animate: {
-    x: 0,
-    opacity: 1,
     scale: 1,
+    opacity: 1,
     transition: {
       duration: 0.8,
       ease: "easeOut",
@@ -55,21 +51,22 @@ const imageVariants = {
 const Home = () => {
   return (
     <div className="hero">
-      <motion.div
-        className="imageContainer"
-        variants={imageVariants}
-        initial="initial"
-        animate="animate"
-      >
-        <motion.img
-          src="about-removebg.png"
-          alt="Manav Desai"
-          width="600"
-          height="400"
-        />
-      </motion.div>
+      <div className="hero-content">
+        {/* Profile Image */}
+        <motion.div
+          className="imageContainer"
+          variants={imageVariants}
+          initial="initial"
+          animate="animate"
+        >
+          <motion.img
+            src="about-removebg.png"
+            alt="Manav Desai"
+            className="profile-image"
+          />
+        </motion.div>
 
-      <div className="wrapper">
+        {/* Text Content */}
         <motion.div
           className="text-container"
           initial="initial"
@@ -77,7 +74,7 @@ const Home = () => {
           variants={textVariants}
         >
           <motion.h1 variants={childVariants}>Manav Desai</motion.h1>
-          <motion.p variants={childVariants}>
+          <motion.div className="role-text" variants={childVariants}>
             <div className="typewriter-container">
               I'm a{" "}
               <Typewriter
@@ -94,12 +91,12 @@ const Home = () => {
                 delaySpeed={1000}
               />
             </div>
-          </motion.p>
+          </motion.div>
 
-          <div className="buttons">
+          {/* Buttons */}
+          <motion.div className="buttons" variants={childVariants}>
             <motion.a
               href="#Projects"
-              variants={childVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -107,13 +104,12 @@ const Home = () => {
             </motion.a>
             <motion.a
               href="#Contacts"
-              variants={childVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <button>Contact Me</button>
             </motion.a>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </div>

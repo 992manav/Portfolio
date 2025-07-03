@@ -42,6 +42,11 @@ section {
   body {
     font-size: 14px;
   }
+
+  #Home {
+    height: 100vh;
+    min-height: 100vh;
+  }
 }
 
 @media (max-width: 480px) {
@@ -52,5 +57,10 @@ section {
   section {
     min-height: 100vh;
     padding: 0;
+  }
+
+  #Home {
+    height: 100vh;
+    min-height: 100vh;
   }
 }

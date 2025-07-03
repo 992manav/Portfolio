@@ -30,6 +30,7 @@
   width: 100%;
   /* Increase height for better spacing */
   min-height: 450px;
+  position: relative;
 }
 
 .text-container h1 {
@@ -73,14 +74,13 @@
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  /* Increased margin to push buttons further down */
-  margin-top: 2.5rem;
-  /* Fixed position to prevent movement */
-   position: fixed;
-  bottom: 40px; /* Adjust this value to move it up/down */
-  transform: translateX(-5%); /* Centering trick */
-    // right: 10%;
-  z-index: 1000; /* Ensure it stays above other elements */
+  /* Position relative to the text container */
+  position: absolute;
+  bottom: -60px; /* Position below the text container */
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally */
+  width: 100%;
+  justify-content: center;
 }
 
 .buttons button {
@@ -94,11 +94,7 @@
   transition: all 0.3s ease;
   white-space: nowrap;
   min-width: 180px;
-
-  /* Fixed position a bit above the bottom */
- 
 }
-
 
 .buttons button:hover {
   background-color: white;
@@ -149,7 +145,7 @@
   }
 
   .buttons {
-    margin-top: 2rem;
+    bottom: -50px;
   }
 
   .imageContainer img {
@@ -203,6 +199,10 @@
   }
 
   .buttons {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
     justify-content: center;
     margin-top: 2rem;
   }
@@ -245,6 +245,10 @@
   }
 
   .buttons {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
     flex-direction: column;
     align-items: center;
     gap: 0.8rem;

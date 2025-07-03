@@ -17,6 +17,8 @@
   box-sizing: border-box;
   display: flex;
   align-items: center;
+  /* Shift content up */
+  margin-top: -3rem;
 }
 
 .text-container {
@@ -26,6 +28,8 @@
   gap: 1rem;
   padding: 1rem;
   width: 100%;
+  /* Increase height for better spacing */
+  min-height: 400px;
 }
 
 .text-container h1 {
@@ -39,21 +43,22 @@
 .text-container p {
   font-size: 6vw;
   margin: 0;
-  /* Fixed height to prevent layout shifts */
-  min-height: 120px;
+  /* Increased height for better visibility */
+  min-height: 140px;
   display: flex;
   align-items: center;
 }
 
 .typewriter-container {
-  font-size: 80px;
+  /* Reduced font size for better fit */
+  font-size: 60px;
   font-weight: bold;
   line-height: 1.2;
-  /* Fixed minimum height to prevent jumping */
-  min-height: 96px;
+  /* Increased minimum height */
+  min-height: 120px;
   display: flex;
   align-items: center;
-  /* Prevent text wrapping that could cause height changes */
+  /* Allow wrapping on smaller screens */
   white-space: nowrap;
   overflow: hidden;
 }
@@ -94,13 +99,16 @@
   justify-content: center;
   position: relative;
   max-width: 50%;
-  /* Fixed height to prevent movement */
-  height: calc(100vh - 200px);
+  /* Increased height for bigger image */
+  height: calc(100vh - 150px);
+  /* Shift image up slightly */
+  margin-top: -2rem;
 }
 
 .imageContainer img {
-  max-width: 100%;
-  width: 100%;
+  /* Make image bigger */
+  max-width: 120%;
+  width: 120%;
   height: auto;
   object-fit: contain;
   /* Prevent image from changing size */
@@ -114,12 +122,17 @@
 
   .text-container p {
     font-size: 7vw;
-    min-height: 100px;
+    min-height: 120px;
   }
 
   .typewriter-container {
-    font-size: 60px;
-    min-height: 72px;
+    font-size: 50px;
+    min-height: 100px;
+  }
+
+  .imageContainer img {
+    max-width: 110%;
+    width: 110%;
   }
 }
 
@@ -134,18 +147,21 @@
   .wrapper {
     max-width: 100%;
     order: 2;
+    margin-top: 0;
   }
   
   .imageContainer {
     max-width: 100%;
     order: 1;
     margin-bottom: 2rem;
-    height: 300px;
+    height: 350px;
+    margin-top: 0;
   }
 
   .text-container {
     text-align: center;
     padding: 1rem 0;
+    min-height: 350px;
   }
 
   .text-container h1 {
@@ -154,12 +170,12 @@
 
   .text-container p {
     font-size: 6vw;
-    min-height: 80px;
+    min-height: 100px;
   }
 
   .typewriter-container {
-    font-size: 40px;
-    min-height: 48px;
+    font-size: 35px;
+    min-height: 70px;
     white-space: normal;
     text-align: center;
   }
@@ -174,6 +190,11 @@
     font-size: 0.9rem;
     min-width: 160px;
   }
+
+  .imageContainer img {
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 @media (max-width: 480px) {
@@ -183,6 +204,7 @@
 
   .text-container {
     padding: 0.5rem;
+    min-height: 300px;
   }
 
   .text-container h1 {
@@ -192,12 +214,12 @@
 
   .text-container p {
     font-size: 4vw;
-    min-height: 60px;
+    min-height: 80px;
   }
 
   .typewriter-container {
-    font-size: 28px;
-    min-height: 36px;
+    font-size: 24px;
+    min-height: 50px;
   }
 
   .buttons {
@@ -216,6 +238,11 @@
 
   .imageContainer {
     margin-bottom: 1rem;
-    height: 250px;
+    height: 280px;
+  }
+
+  .imageContainer img {
+    max-width: 100%;
+    width: 100%;
   }
 }

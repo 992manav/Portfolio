@@ -76,7 +76,10 @@
   /* Increased margin to push buttons further down */
   margin-top: 2.5rem;
   /* Fixed position to prevent movement */
-  position: relative;
+   position: fixed;
+  bottom: 40px; /* Adjust this value to move it up/down */
+  transform: translateX(-50%); /* Centering trick */
+  z-index: 1000; /* Ensure it stays above other elements */
 }
 
 .buttons button {
@@ -92,10 +95,7 @@
   min-width: 180px;
 
   /* Fixed position a bit above the bottom */
-  position: fixed;
-  bottom: 40px; /* Adjust this value to move it up/down */
-  transform: translateX(-50%); /* Centering trick */
-  z-index: 1000; /* Ensure it stays above other elements */
+ 
 }
 
 

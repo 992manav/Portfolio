@@ -47,16 +47,16 @@
         font-size: 24px;
         
         img {
-          height: 70px;
+          height: 60px;
         }
       }
       
       .socials {
-        gap: 8px;
+        gap: 6px;
         
         a {
-          width: 32px !important;
-          height: 32px !important;
+          width: 28px !important;
+          height: 28px !important;
         }
       }
     }
@@ -75,16 +75,41 @@
         font-size: 20px;
         
         img {
-          height: 50px;
+          height: 45px;
         }
       }
       
       .socials {
-        gap: 6px;
+        gap: 4px;
         
         a {
-          width: 28px !important;
-          height: 28px !important;
+          width: 24px !important;
+          height: 24px !important;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .Navbar {
+    height: 60px;
+    
+    .wrapper {
+      span {
+        font-size: 18px;
+        
+        img {
+          height: 35px;
+        }
+      }
+      
+      .socials {
+        gap: 3px;
+        
+        a {
+          width: 20px !important;
+          height: 20px !important;
         }
       }
     }

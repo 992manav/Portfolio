@@ -118,10 +118,10 @@
 
 @media (max-width: 768px) {
   .hero {
-    height: 100vh;
+    height: calc(100vh - 80px);
     flex-direction: column;
     padding: 0.5rem;
-    justify-content: space-between;
+    justify-content: flex-start;
     overflow: hidden;
   }
   
@@ -131,130 +131,132 @@
     flex: 1;
     display: flex;
     align-items: center;
+    min-height: 0;
   }
   
   .imageContainer {
     max-width: 100%;
     order: 1;
-    height: 25vh;
+    height: 15vh;
     margin-bottom: 0.5rem;
     flex-shrink: 0;
   }
 
   .text-container {
     text-align: center;
-    padding: 0.5rem;
-    gap: 0.5rem;
+    padding: 0.3rem;
+    gap: 0.3rem;
     width: 100%;
     box-sizing: border-box;
     justify-content: center;
   }
 
   .text-container h1 {
-    font-size: 6vw;
-    margin-bottom: 0.3rem;
-    letter-spacing: 0.3vw;
+    font-size: 5vw;
+    margin-bottom: 0.2rem;
+    letter-spacing: 0.2vw;
   }
 
   .text-container p {
-    font-size: 4vw;
-    min-height: 40px;
+    font-size: 3vw;
+    min-height: 25px;
     width: 100%;
   }
 
   .typewriter-container {
-    font-size: 18px;
-    min-height: 35px;
+    font-size: 14px;
+    min-height: 20px;
     white-space: normal;
     text-align: center;
     justify-content: center;
     width: 100%;
     word-wrap: break-word;
     overflow-wrap: break-word;
-    line-height: 1.2;
+    line-height: 1.1;
   }
 
   .buttons {
     justify-content: center;
-    margin-top: 0.5rem;
+    margin-top: 0.3rem;
     width: 100%;
-    gap: 0.5rem;
+    gap: 0.3rem;
   }
 
   .buttons button {
-    padding: 0.6rem 1rem;
-    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.7rem;
     min-width: auto;
-    width: 45%;
-    max-width: 150px;
+    width: 40%;
+    max-width: 120px;
   }
 
   .imageContainer img {
-    max-width: 80%;
-    width: 80%;
+    max-width: 60%;
+    width: 60%;
   }
 }
 
 @media (max-width: 480px) {
   .hero {
+    height: calc(100vh - 70px);
     padding: 0.25rem;
-    height: 100vh;
   }
 
   .imageContainer {
-    height: 20vh;
+    height: 12vh;
     margin-bottom: 0.25rem;
   }
 
   .text-container {
-    padding: 0.25rem;
-    gap: 0.4rem;
+    padding: 0.2rem;
+    gap: 0.2rem;
   }
 
   .text-container h1 {
-    font-size: 7vw;
-    letter-spacing: 0.2vw;
-    margin-bottom: 0.2rem;
+    font-size: 6vw;
+    letter-spacing: 0.1vw;
+    margin-bottom: 0.1rem;
   }
 
   .text-container p {
-    font-size: 3vw;
-    min-height: 30px;
+    font-size: 2.5vw;
+    min-height: 20px;
   }
 
   .typewriter-container {
-    font-size: 14px;
-    min-height: 28px;
-    line-height: 1.1;
+    font-size: 11px;
+    min-height: 16px;
+    line-height: 1;
   }
 
   .buttons {
-    margin-top: 0.4rem;
-    gap: 0.4rem;
-    flex-direction: column;
-    align-items: center;
+    margin-top: 0.2rem;
+    gap: 0.2rem;
+    flex-direction: row;
+    justify-content: center;
   }
 
   .buttons button {
-    padding: 0.5rem 0.8rem;
-    font-size: 0.75rem;
-    width: 70%;
-    max-width: 140px;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.6rem;
+    width: 35%;
+    max-width: 100px;
   }
 
   .imageContainer img {
-    max-width: 70%;
-    width: 70%;
+    max-width: 50%;
+    width: 50%;
   }
 }
 
 @media (max-width: 360px) {
   .hero {
+    height: calc(100vh - 60px);
     padding: 0.1rem;
   }
 
   .imageContainer {
-    height: 18vh;
+    height: 10vh;
   }
 
   .text-container {
@@ -262,23 +264,24 @@
   }
 
   .text-container h1 {
-    font-size: 8vw;
-    letter-spacing: 0.1vw;
+    font-size: 7vw;
+    letter-spacing: 0.05vw;
   }
 
   .typewriter-container {
-    font-size: 12px;
-    min-height: 25px;
+    font-size: 9px;
+    min-height: 14px;
   }
 
   .buttons button {
-    font-size: 0.7rem;
-    padding: 0.4rem 0.6rem;
-    width: 75%;
+    font-size: 0.55rem;
+    padding: 0.25rem 0.4rem;
+    width: 32%;
+    max-width: 80px;
   }
 
   .imageContainer img {
-    max-width: 65%;
-    width: 65%;
+    max-width: 45%;
+    width: 45%;
   }
 }

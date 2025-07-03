@@ -89,9 +89,16 @@
   cursor: pointer;
   transition: all 0.3s ease;
   white-space: nowrap;
-  /* Prevent button size changes */
   min-width: 180px;
+
+  /* Fixed position a bit above the bottom */
+  position: fixed;
+  bottom: 40px; /* Adjust this value to move it up/down */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Centering trick */
+  z-index: 1000; /* Ensure it stays above other elements */
 }
+
 
 .buttons button:hover {
   background-color: white;

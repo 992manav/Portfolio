@@ -29,7 +29,7 @@
   padding: 1rem;
   width: 100%;
   /* Increase height for better spacing */
-  min-height: 400px;
+  min-height: 450px;
 }
 
 .text-container h1 {
@@ -44,7 +44,7 @@
   font-size: 6vw;
   margin: 0;
   /* Increased height for better visibility */
-  min-height: 140px;
+  min-height: 160px;
   display: flex;
   align-items: center;
 }
@@ -54,8 +54,8 @@
   font-size: 60px;
   font-weight: bold;
   line-height: 1.2;
-  /* Increased minimum height */
-  min-height: 120px;
+  /* Increased minimum height for overflow protection */
+  min-height: 140px;
   display: flex;
   align-items: center;
   /* Allow wrapping on smaller screens */
@@ -67,7 +67,8 @@
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  margin-top: 1rem;
+  /* Increased margin to push buttons further down */
+  margin-top: 2.5rem;
   /* Fixed position to prevent movement */
   position: relative;
 }
@@ -116,18 +117,26 @@
 }
 
 @media (max-width: 1024px) {
+  .text-container {
+    min-height: 400px;
+  }
+
   .text-container h1 {
     font-size: 5vw;
   }
 
   .text-container p {
     font-size: 7vw;
-    min-height: 120px;
+    min-height: 140px;
   }
 
   .typewriter-container {
     font-size: 50px;
-    min-height: 100px;
+    min-height: 120px;
+  }
+
+  .buttons {
+    margin-top: 2rem;
   }
 
   .imageContainer img {
@@ -161,7 +170,7 @@
   .text-container {
     text-align: center;
     padding: 1rem 0;
-    min-height: 350px;
+    min-height: 380px;
   }
 
   .text-container h1 {
@@ -170,19 +179,19 @@
 
   .text-container p {
     font-size: 6vw;
-    min-height: 100px;
+    min-height: 120px;
   }
 
   .typewriter-container {
     font-size: 35px;
-    min-height: 70px;
+    min-height: 90px;
     white-space: normal;
     text-align: center;
   }
 
   .buttons {
     justify-content: center;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
   }
 
   .buttons button {
@@ -204,7 +213,7 @@
 
   .text-container {
     padding: 0.5rem;
-    min-height: 300px;
+    min-height: 320px;
   }
 
   .text-container h1 {
@@ -214,18 +223,19 @@
 
   .text-container p {
     font-size: 4vw;
-    min-height: 80px;
+    min-height: 100px;
   }
 
   .typewriter-container {
     font-size: 24px;
-    min-height: 50px;
+    min-height: 70px;
   }
 
   .buttons {
     flex-direction: column;
     align-items: center;
     gap: 0.8rem;
+    margin-top: 1.5rem;
   }
 
   .buttons button {

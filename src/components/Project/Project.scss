@@ -128,11 +128,13 @@
       .image-container {
         max-width: 100%;
         order: 1;
-        height: 300px;
+        height: 250px;
+        border-radius: 5%;
         
         img {
           height: 100%;
           object-fit: cover;
+          border-radius: 10px;
         }
       }
 
@@ -152,11 +154,13 @@
           font-size: 0.95rem;
           margin-bottom: 1.5rem;
           text-align: left;
+          line-height: 1.5;
         }
 
         a {
           margin: 0 auto;
           padding: 10px 20px;
+          font-size: 0.9rem;
         }
       }
     }
@@ -177,13 +181,14 @@
     .container {
       padding: 0.5rem;
       gap: 1rem;
+      min-height: 100vh;
 
       .image-container {
-        height: 250px;
-        border-radius: 5%;
+        height: 200px;
+        border-radius: 3%;
         
         img {
-          border-radius: 10px;
+          border-radius: 8px;
         }
       }
 
@@ -196,14 +201,14 @@
         }
 
         p {
-          font-size: 0.9rem;
+          font-size: 0.85rem;
           margin-bottom: 1rem;
-          line-height: 1.5;
+          line-height: 1.4;
         }
 
         a {
           padding: 8px 16px;
-          font-size: 0.9rem;
+          font-size: 0.85rem;
           width: 80%;
           max-width: 200px;
         }

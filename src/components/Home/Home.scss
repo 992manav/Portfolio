@@ -17,7 +17,6 @@
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  /* Shift content up */
   margin-top: -3rem;
 }
 
@@ -28,7 +27,6 @@
   gap: 1rem;
   padding: 1rem;
   width: 100%;
-  /* Increase height for better spacing */
   min-height: 450px;
   position: relative;
 }
@@ -44,41 +42,31 @@
 .text-container p {
   font-size: 6vw;
   margin: 0;
-  /* Increased height for better visibility */
   min-height: 160px;
   display: flex;
   align-items: center;
 }
 
 .typewriter-container {
-  /* Reduced font size for better fit */
   font-size: 60px;
   font-weight: bold;
   line-height: 1.2;
-
-  /* Increased minimum height for overflow protection */
   min-height: 140px;
-
   display: flex;
   align-items: center;
-
-  /* Allow wrapping */
   white-space: normal;
-
-  /* Optional: remove or set overflow to auto if needed */
   overflow: visible;
-  flex-wrap: wrap; /* allows text to wrap inside flex container */
+  flex-wrap: wrap;
 }
 
 .buttons {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  /* Position relative to the text container */
   position: absolute;
-  bottom: -60px; /* Position below the text container */
+  bottom: -60px;
   left: 50%;
-  transform: translateX(-50%); /* Center horizontally */
+  transform: translateX(-50%);
   width: 100%;
   justify-content: center;
 }
@@ -109,19 +97,15 @@
   justify-content: center;
   position: relative;
   max-width: 50%;
-  /* Increased height for bigger image */
   height: calc(100vh - 150px);
-  /* Shift image up slightly */
   margin-top: -2rem;
 }
 
 .imageContainer img {
-  /* Make image bigger */
   max-width: 120%;
   width: 120%;
   height: auto;
   object-fit: contain;
-  /* Prevent image from changing size */
   max-height: 100%;
 }
 
@@ -157,45 +141,51 @@
 @media (max-width: 768px) {
   .hero {
     height: auto;
-    min-height: calc(100vh - 80px);
+    min-height: 100vh;
     flex-direction: column;
-    padding: 2rem 1rem;
+    padding: 1rem;
+    justify-content: flex-start;
   }
   
   .wrapper {
     max-width: 100%;
     order: 2;
     margin-top: 0;
+    width: 100%;
   }
   
   .imageContainer {
     max-width: 100%;
     order: 1;
-    margin-bottom: 2rem;
-    height: 350px;
+    margin-bottom: 1rem;
+    height: 250px;
     margin-top: 0;
+    width: 100%;
   }
 
   .text-container {
     text-align: center;
-    padding: 1rem 0;
-    min-height: 380px;
+    padding: 1rem;
+    min-height: auto;
+    gap: 1rem;
   }
 
   .text-container h1 {
     font-size: 8vw;
+    margin-bottom: 0.5rem;
   }
 
   .text-container p {
     font-size: 6vw;
-    min-height: 120px;
+    min-height: 80px;
   }
 
   .typewriter-container {
-    font-size: 35px;
-    min-height: 90px;
+    font-size: 28px;
+    min-height: 60px;
     white-space: normal;
     text-align: center;
+    justify-content: center;
   }
 
   .buttons {
@@ -204,13 +194,15 @@
     left: auto;
     transform: none;
     justify-content: center;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
+    width: 100%;
   }
 
   .buttons button {
-    padding: 0.8rem 1.5rem;
+    padding: 0.8rem 1.2rem;
     font-size: 0.9rem;
-    min-width: 160px;
+    min-width: 140px;
+    margin: 0.25rem;
   }
 
   .imageContainer img {
@@ -221,55 +213,49 @@
 
 @media (max-width: 480px) {
   .hero {
-    padding: 1rem 0.5rem;
+    padding: 0.5rem;
+    min-height: 100vh;
   }
 
   .text-container {
     padding: 0.5rem;
-    min-height: 320px;
+    gap: 0.8rem;
   }
 
   .text-container h1 {
-    font-size: 10vw;
+    font-size: 9vw;
     letter-spacing: 0.2vw;
+    margin-bottom: 0.5rem;
   }
 
   .text-container p {
-    font-size: 4vw;
-    min-height: 100px;
+    font-size: 5vw;
+    min-height: 60px;
   }
 
   .typewriter-container {
-    font-size: 24px;
-    min-height: 70px;
+    font-size: 22px;
+    min-height: 50px;
+    line-height: 1.3;
   }
 
   .buttons {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    transform: none;
     flex-direction: column;
     align-items: center;
     gap: 0.8rem;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
   }
 
   .buttons button {
-    padding: 0.7rem 1.2rem;
-    font-size: 0.8rem;
-    width: 80%;
-    max-width: 200px;
+    padding: 0.7rem 1rem;
+    font-size: 0.85rem;
+    width: 90%;
+    max-width: 250px;
     min-width: auto;
   }
 
   .imageContainer {
-    margin-bottom: 1rem;
-    height: 280px;
-  }
-
-  .imageContainer img {
-    max-width: 100%;
-    width: 100%;
+    height: 200px;
+    margin-bottom: 0.5rem;
   }
 }

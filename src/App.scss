@@ -36,5 +36,21 @@ section {
     height: auto;
     min-height: 100vh;
     scroll-snap-align: none;
+    padding: 0;
+  }
+  
+  body {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 13px;
+  }
+  
+  section {
+    min-height: 100vh;
+    padding: 0;
   }
 }

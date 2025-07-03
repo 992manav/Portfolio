@@ -30,6 +30,7 @@
       display: flex;
       gap: 15px;
       flex-wrap: wrap;
+      align-items: center;
     }
   }
 }
@@ -46,16 +47,16 @@
         font-size: 24px;
         
         img {
-          height: 80px;
+          height: 70px;
         }
       }
       
       .socials {
-        gap: 10px;
+        gap: 8px;
         
         a {
-          width: 35px !important;
-          height: 35px !important;
+          width: 32px !important;
+          height: 32px !important;
         }
       }
     }
@@ -67,20 +68,23 @@
     height: 70px;
     
     .wrapper {
+      max-width: 98%;
+      padding: 0 0.25rem;
+      
       span {
         font-size: 20px;
         
         img {
-          height: 60px;
+          height: 50px;
         }
       }
       
       .socials {
-        gap: 8px;
+        gap: 6px;
         
         a {
-          width: 30px !important;
-          height: 30px !important;
+          width: 28px !important;
+          height: 28px !important;
         }
       }
     }

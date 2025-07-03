@@ -120,8 +120,9 @@
     align-items: stretch;
     height: auto;
     min-height: 100vh;
-    padding: 1.5rem 1rem;
+    padding: 2rem 1rem;
     gap: 1.5rem;
+    justify-content: flex-start;
   }
 
   .contact .textContainer,
@@ -145,6 +146,14 @@
     margin-bottom: 1rem;
   }
 
+  .contact .textContainer .items h2 {
+    font-size: 1.1rem;
+  }
+
+  .contact .textContainer .items p {
+    font-size: 0.95rem;
+  }
+
   .contact .FormContainer {
     padding: 1rem;
   }
@@ -152,11 +161,27 @@
   .contact .FormContainer form {
     gap: 1.2rem;
   }
+
+  .contact .FormContainer input[type="text"],
+  .contact .FormContainer input[type="email"],
+  .contact .FormContainer textarea {
+    padding: 0.7rem;
+    font-size: 0.95rem;
+  }
+
+  .contact .FormContainer textarea {
+    min-height: 100px;
+  }
+
+  .contact .FormContainer button[type="submit"] {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.95rem;
+  }
 }
 
 @media (max-width: 480px) {
   .contact {
-    padding: 1rem 0.5rem;
+    padding: 1.5rem 0.5rem;
     gap: 1rem;
   }
 
@@ -169,8 +194,13 @@
     margin-bottom: 1rem;
   }
 
+  .contact .textContainer .items {
+    margin-bottom: 0.8rem;
+  }
+
   .contact .textContainer .items h2 {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
   }
 
   .contact .textContainer .items p {
@@ -193,11 +223,11 @@
   }
 
   .contact .FormContainer textarea {
-    min-height: 100px;
+    min-height: 80px;
   }
 
   .contact .FormContainer button[type="submit"] {
-    padding: 0.6rem 1.2rem;
+    padding: 0.6rem 1rem;
     font-size: 0.9rem;
   }
 }

@@ -78,7 +78,7 @@
   /* Fixed position to prevent movement */
    position: fixed;
   bottom: 40px; /* Adjust this value to move it up/down */
-  transform: translateX(-20%); /* Centering trick */
+  transform: translateX(-15%); /* Centering trick */
     right: 10%;
   z-index: 1000; /* Ensure it stays above other elements */
 }

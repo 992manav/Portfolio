@@ -94,7 +94,6 @@
   /* Fixed position a bit above the bottom */
   position: fixed;
   bottom: 40px; /* Adjust this value to move it up/down */
-  left: 50%; /* Center horizontally */
   transform: translateX(-50%); /* Centering trick */
   z-index: 1000; /* Ensure it stays above other elements */
 }

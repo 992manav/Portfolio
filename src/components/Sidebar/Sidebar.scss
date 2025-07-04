@@ -60,6 +60,50 @@
   }
 }
 
+/* Large Desktop */
+@media (max-width: 1200px) {
+  .sidebar {
+    .bg {
+      width: 350px;
+
+      .links {
+        gap: 18px;
+
+        a {
+          font-size: 36px;
+          padding: 0.45rem 0.9rem;
+        }
+      }
+    }
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .sidebar {
+    .bg {
+      width: 320px;
+
+      .links {
+        gap: 16px;
+
+        a {
+          font-size: 34px;
+          padding: 0.4rem 0.8rem;
+        }
+      }
+    }
+
+    button {
+      width: 48px;
+      height: 48px;
+      top: 22px;
+      left: 22px;
+    }
+  }
+}
+
+/* Mobile */
 @media (max-width: 768px) {
   .sidebar {
     .bg {
@@ -84,6 +128,7 @@
   }
 }
 
+/* Small Mobile */
 @media (max-width: 480px) {
   .sidebar {
     .bg {
@@ -109,7 +154,8 @@
   }
 }
 
-@media (max-width: 360px) {
+/* Extra Small Mobile */
+@media (max-width: 375px) {
   .sidebar {
     .bg {
       width: 220px;
@@ -129,6 +175,31 @@
       height: 35px;
       top: 12px;
       left: 12px;
+    }
+  }
+}
+
+/* Very Small Mobile */
+@media (max-width: 320px) {
+  .sidebar {
+    .bg {
+      width: 200px;
+
+      .links {
+        gap: 8px;
+
+        a {
+          font-size: 22px;
+          padding: 0.2rem 0.4rem;
+        }
+      }
+    }
+
+    button {
+      width: 32px;
+      height: 32px;
+      top: 10px;
+      left: 10px;
     }
   }
 }

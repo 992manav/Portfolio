@@ -27,6 +27,20 @@ section {
   width: 100%;
 }
 
+/* Tablet Responsiveness */
+@media (max-width: 1024px) {
+  body {
+    font-size: 15px;
+  }
+  
+  section {
+    height: auto;
+    min-height: 100vh;
+    padding: 0;
+  }
+}
+
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
   html {
     scroll-snap-type: none;
@@ -76,6 +90,7 @@ section {
   }
 }
 
+/* Small Mobile */
 @media (max-width: 480px) {
   body {
     font-size: 13px;
@@ -115,5 +130,28 @@ section {
     height: auto;
     min-height: 100vh;
     padding: 50px 0;
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 375px) {
+  body {
+    font-size: 12px;
+  }
+  
+  #About {
+    padding: 60px 0 40px 0;
+  }
+
+  #Tools {
+    padding: 40px 0;
+  }
+
+  #Projects {
+    padding: 20px 0;
+  }
+
+  #Contacts {
+    padding: 40px 0;
   }
 }

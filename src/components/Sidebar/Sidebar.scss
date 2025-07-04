@@ -44,7 +44,7 @@
     position: fixed;
     top: 25px;
     left: 25px;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.1);
     cursor: pointer;
     z-index: 9999;
     border: none;
@@ -52,17 +52,18 @@
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
 
     svg {
       color: #fff;
       font-size: 24px;
-      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
     }
   }
 
   .hamburger-button:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
   }
 
   .hamburger-button:active {
@@ -86,10 +87,10 @@
     }
 
     .hamburger-button {
-      width: 45px;
-      height: 45px;
-      top: 20px;
-      left: 20px;
+      width: 48px;
+      height: 48px;
+      top: 15px;
+      left: 15px;
 
       svg {
         font-size: 22px;
@@ -101,7 +102,8 @@
 @media (max-width: 480px) {
   .sidebar {
     .bg {
-      width: 250px;
+      width: 100%;
+      max-width: 280px;
 
       .links {
         gap: 12px;
@@ -114,10 +116,11 @@
     }
 
     .hamburger-button {
-      width: 40px;
-      height: 40px;
-      top: 15px;
-      left: 15px;
+      width: 44px;
+      height: 44px;
+      top: 12px;
+      left: 12px;
+      background-color: rgba(0, 0, 0, 0.2);
 
       svg {
         font-size: 20px;
@@ -126,10 +129,11 @@
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 375px) {
   .sidebar {
     .bg {
-      width: 220px;
+      width: 100%;
+      max-width: 260px;
 
       .links {
         gap: 10px;
@@ -142,13 +146,29 @@
     }
 
     .hamburger-button {
-      width: 35px;
-      height: 35px;
-      top: 12px;
-      left: 12px;
+      width: 42px;
+      height: 42px;
+      top: 10px;
+      left: 10px;
+      background-color: rgba(0, 0, 0, 0.25);
 
       svg {
         font-size: 18px;
+      }
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .sidebar {
+    .hamburger-button {
+      width: 40px;
+      height: 40px;
+      top: 8px;
+      left: 8px;
+
+      svg {
+        font-size: 16px;
       }
     }
   }

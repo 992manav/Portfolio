@@ -75,11 +75,10 @@
 @media (max-width: 768px) {
   .about-me {
     height: auto;
-    min-height: calc(100vh - 80px);
-    padding: 1rem;
+    min-height: calc(100vh - 120px);
+    padding: 2rem 1rem;
     max-width: 95%;
     justify-content: flex-start;
-    padding-top: 1rem;
   }
 
   .about-me-header {
@@ -92,7 +91,7 @@
 
   .about-me-introduction,
   .about-me-education {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     max-width: 100%;
   }
 
@@ -105,21 +104,21 @@
   .about-me-introduction li,
   .about-me-education li {
     font-size: 0.95rem;
-    margin-bottom: 0.8rem;
-    line-height: 1.5;
+    margin-bottom: 1rem;
+    line-height: 1.6;
   }
 }
 
 @media (max-width: 480px) {
   .about-me {
-    padding: 0.5rem;
+    padding: 1.5rem 1rem;
     font-size: 0.9rem;
-    padding-top: 0.5rem;
-    min-height: calc(100vh - 70px);
+    min-height: calc(100vh - 120px);
+    justify-content: flex-start;
   }
 
   .about-me-header {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   .about-me-header h1 {
@@ -128,20 +127,43 @@
 
   .about-me-introduction,
   .about-me-education {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
 
   .about-me-introduction h2,
   .about-me-education h2 {
     font-size: 1.3rem;
-    margin-bottom: 0.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .about-me-introduction li,
+  .about-me-education li {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .about-me {
+    padding: 1rem 0.8rem;
+    min-height: calc(100vh - 100px);
+  }
+
+  .about-me-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .about-me-introduction h2,
+  .about-me-education h2 {
+    font-size: 1.2rem;
   }
 
   .about-me-introduction li,
   .about-me-education li {
     font-size: 0.85rem;
     line-height: 1.4;
-    margin-bottom: 0.7rem;
-    padding-left: 0.8rem;
+    margin-bottom: 0.8rem;
   }
 }

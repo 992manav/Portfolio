@@ -52,24 +52,27 @@ section {
   #About {
     height: auto;
     min-height: 100vh;
-    padding-top: 80px;
+    padding: 80px 0 40px 0;
+    display: flex;
+    align-items: stretch;
   }
 
   #Tools {
     height: auto;
     min-height: 100vh;
-    padding-top: 20px;
+    padding: 40px 0;
   }
 
   #Projects {
     height: auto;
     min-height: 100vh;
+    padding: 20px 0;
   }
 
   #Contacts {
     height: auto;
     min-height: 100vh;
-    padding-top: 20px;
+    padding: 40px 0;
   }
 }
 
@@ -91,23 +94,26 @@ section {
   #About {
     height: auto;
     min-height: 100vh;
-    padding-top: 70px;
+    padding: 70px 0 50px 0;
+    display: flex;
+    align-items: stretch;
   }
 
   #Tools {
     height: auto;
     min-height: 100vh;
-    padding-top: 20px;
+    padding: 50px 0;
   }
 
   #Projects {
     height: auto;
     min-height: 100vh;
+    padding: 30px 0;
   }
 
   #Contacts {
     height: auto;
     min-height: 100vh;
-    padding-top: 20px;
+    padding: 50px 0;
   }
 }

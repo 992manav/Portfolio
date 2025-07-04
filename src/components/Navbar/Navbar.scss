@@ -73,11 +73,13 @@
       justify-content: flex-end; /* Only show social icons */
       
       span {
-        display: none; /* Hide logo on mobile */
+        display: none !important; /* Force hide logo on mobile */
       }
       
       .socials {
         gap: 6px;
+        width: 100%;
+        justify-content: center;
         
         a {
           width: 28px !important;
@@ -94,7 +96,7 @@
     
     .wrapper {
       span {
-        display: none; /* Keep logo hidden */
+        display: none !important; /* Keep logo hidden */
       }
       
       .socials {

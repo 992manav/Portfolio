@@ -8,12 +8,7 @@ const ToggleButton = ({ setOpen }) => {
       onClick={() => {
         setOpen((prev) => !prev);
       }}
-      style={{
-        border: "none",
-        background: "none",
-        cursor: "pointer",
-        fontSize: "24px",
-      }}
+      className="hamburger-button"
     >
       <FontAwesomeIcon icon={faBars} />
     </button>

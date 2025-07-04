@@ -75,11 +75,11 @@
 @media (max-width: 768px) {
   .about-me {
     height: auto;
-    min-height: 100vh;
-    padding: 2rem 1rem;
+    min-height: calc(100vh - 80px);
+    padding: 1rem;
     max-width: 95%;
     justify-content: flex-start;
-    padding-top: 3rem;
+    padding-top: 1rem;
   }
 
   .about-me-header {
@@ -112,9 +112,10 @@
 
 @media (max-width: 480px) {
   .about-me {
-    padding: 1.5rem 0.5rem;
+    padding: 0.5rem;
     font-size: 0.9rem;
-    padding-top: 2rem;
+    padding-top: 0.5rem;
+    min-height: calc(100vh - 70px);
   }
 
   .about-me-header {

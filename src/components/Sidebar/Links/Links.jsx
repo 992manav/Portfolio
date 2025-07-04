@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const Links = () => {
-  const items = ["Home", "About", "Projects", "Contacts"];
+const Links = ({ setOpen }) => {
+  const items = ["Home", "About", "Tools", "Projects", "Contacts"];
 
   const variants = {
     open: {
@@ -31,6 +31,22 @@ const Links = () => {
     },
   };
 
+  const handleLinkClick = (link) => {
+    // Close sidebar when link is clicked
+    setOpen(false);
+    
+    // Small delay to allow sidebar to close before scrolling
+    setTimeout(() => {
+      const element = document.getElementById(link);
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }, 300);
+  };
+
   return (
     <motion.div className="links" variants={variants}>
       {items.map((link) => (
@@ -40,6 +56,10 @@ const Links = () => {
           variants={linkvariants}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
+          onClick={(e) => {
+            e.preventDefault();
+            handleLinkClick(link);
+          }}
         >
           {link}
         </motion.a>

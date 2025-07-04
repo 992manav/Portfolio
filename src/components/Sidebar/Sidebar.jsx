@@ -4,8 +4,10 @@ import Links from "./Links/Links";
 import { delay, motion } from "framer-motion";
 import ToggleButton from "./ToggleButton/ToggleButton.jsx";
 import { useState } from "react";
+
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
+  
   const variants = {
     open: {
       clipPath: "circle(1200px at 50px 50px)",
@@ -30,7 +32,7 @@ const Sidebar = () => {
   return (
     <motion.div className="sidebar" animate={open ? "open" : "closed"}>
       <motion.div className="bg" variants={variants}>
-        <Links />
+        <Links setOpen={setOpen} />
       </motion.div>
       <ToggleButton setOpen={setOpen} />
     </motion.div>

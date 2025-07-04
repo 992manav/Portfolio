@@ -36,20 +36,45 @@ const eduvariants = {
   },
 };
 
+// Mobile-friendly variants with reduced motion
+const mobileVariants = {
+  initial: {
+    y: 50,
+    opacity: 0,
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      staggerChildren: 0.2,
+    },
+  },
+};
+
 const About = () => {
+  // Check if it's mobile screen
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+  
+  // Use mobile variants for mobile screens
+  const animationVariants = isMobile ? mobileVariants : variants;
+  const eduAnimationVariants = isMobile ? mobileVariants : eduvariants;
+
   return (
     <>
       <motion.div
         className="about-me"
         initial="initial"
         whileInView="animate"
-        variants={variants}
+        viewport={{ once: false, amount: 0.3 }}
+        variants={animationVariants}
       >
         <motion.header
           className="about-me-header"
           initial="initial"
           whileInView="animate"
-          variants={variants}
+          viewport={{ once: false, amount: 0.5 }}
+          variants={animationVariants}
         >
           <h1>About Me</h1>
         </motion.header>
@@ -57,7 +82,8 @@ const About = () => {
           className="about-me-introduction"
           initial="initial"
           whileInView="animate"
-          variants={variants}
+          viewport={{ once: false, amount: 0.3 }}
+          variants={animationVariants}
         >
           <ul>
             <li>
@@ -82,7 +108,8 @@ const About = () => {
           className="about-me-education"
           initial="initial"
           whileInView="animate"
-          variants={eduvariants}
+          viewport={{ once: false, amount: 0.3 }}
+          variants={eduAnimationVariants}
         >
           <h2>Education</h2>
           <ul>

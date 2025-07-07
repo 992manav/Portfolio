@@ -16,13 +16,36 @@
   width: 100%;
   height: 100%;
   z-index: 1;
-  opacity: 0.8;
+  opacity: 0.9;
   pointer-events: auto; /* Enable mouse interaction with 3D scene */
   cursor: grab; /* Show grab cursor to indicate interactivity */
 }
 
 .spline-background:active {
   cursor: grabbing; /* Show grabbing cursor when dragging */
+}
+
+/* Interactive hint for users */
+.spline-background::after {
+  content: "🖱️ Drag to interact with 3D scene";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  z-index: 10;
+  opacity: 0.7;
+  animation: pulseHint 3s infinite;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes pulseHint {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.02); }
 }
 
 .hero-content {
@@ -54,7 +77,7 @@
   height: auto;
   object-fit: contain;
   border-radius: 20px;
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.4));
   transition: transform 0.3s ease;
 }
 
@@ -80,7 +103,7 @@
   margin: 0;
   line-height: 1.2;
   font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
 }
 
 .role-text {
@@ -95,7 +118,7 @@
   min-height: 80px;
   display: flex;
   align-items: center;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .buttons {
@@ -112,8 +135,8 @@
   padding: 1rem 2rem;
   border: 2px solid white;
   border-radius: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(15px);
   color: white;
   font-size: 1.1rem;
   cursor: pointer;
@@ -122,34 +145,15 @@
   min-width: 200px;
   font-weight: 500;
   pointer-events: auto;
+  border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .buttons button:hover {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.95);
   color: black;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
-}
-
-/* Interactive hint for users */
-.spline-background::before {
-  content: "🖱️ Drag to interact";
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  padding: 8px 12px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  z-index: 10;
-  opacity: 0.8;
-  animation: fadeInOut 4s infinite;
-}
-
-@keyframes fadeInOut {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.8; }
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+  border-color: white;
 }
 
 /* Tablet Layout */
@@ -173,9 +177,11 @@
     min-width: 180px;
   }
 
-  .spline-background::before {
-    font-size: 0.7rem;
-    padding: 6px 10px;
+  .spline-background::after {
+    font-size: 0.75rem;
+    padding: 8px 12px;
+    top: 15px;
+    right: 15px;
   }
 }
 
@@ -187,16 +193,16 @@
   }
 
   .spline-background {
-    opacity: 0.4; /* Reduce opacity on mobile for better text readability */
+    opacity: 0.5; /* Reduce opacity on mobile for better text readability */
     pointer-events: auto; /* Keep interaction enabled on mobile */
   }
 
-  .spline-background::before {
+  .spline-background::after {
     content: "👆 Tap to interact";
     top: 10px;
     right: 10px;
-    font-size: 0.6rem;
-    padding: 4px 8px;
+    font-size: 0.7rem;
+    padding: 6px 10px;
   }
 
   .hero-content {
@@ -220,7 +226,7 @@
     object-fit: cover;
     border-radius: 50%;
     border: 4px solid burlywood;
-    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.6));
   }
 
   .text-container {
@@ -266,7 +272,7 @@
     font-size: 1rem;
     min-width: auto;
     min-height: 50px;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.7);
   }
 }
 
@@ -277,11 +283,15 @@
   }
 
   .spline-background {
-    opacity: 0.3; /* Further reduce on small screens */
+    opacity: 0.4; /* Further reduce on small screens */
   }
 
-  .spline-background::before {
-    display: none; /* Hide hint on very small screens */
+  .spline-background::after {
+    content: "👆 Tap";
+    font-size: 0.6rem;
+    padding: 4px 8px;
+    top: 8px;
+    right: 8px;
   }
 
   .hero-content {
@@ -321,14 +331,18 @@
     padding: 0.9rem 1.2rem;
     font-size: 0.95rem;
     min-height: 48px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8);
   }
 }
 
 /* Extra Small Mobile */
 @media (max-width: 375px) {
   .spline-background {
-    opacity: 0.2; /* Minimal opacity for very small screens */
+    opacity: 0.3; /* Minimal opacity for very small screens */
+  }
+
+  .spline-background::after {
+    display: none; /* Hide hint on very small screens */
   }
 
   .hero-content {
@@ -355,7 +369,7 @@
     max-width: 220px;
     padding: 0.8rem 1rem;
     font-size: 0.9rem;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.9);
   }
 }
 
@@ -363,7 +377,7 @@
 @media (max-width: 480px) and (max-height: 800px) {
   .spline-background {
     pointer-events: none; /* Disable interaction on very low-end devices */
-    opacity: 0.1;
+    opacity: 0.2;
   }
   
   .hero {
@@ -378,7 +392,26 @@
     opacity: 0.3;
   }
   
-  .spline-background::before {
+  .spline-background::after {
     display: none;
+  }
+  
+  @keyframes pulseHint {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .spline-background {
+    opacity: 0.2;
+  }
+  
+  .text-container h1 {
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.9);
+  }
+  
+  .typewriter-container {
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
   }
 }

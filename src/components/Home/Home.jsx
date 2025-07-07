@@ -50,27 +50,11 @@ const imageVariants = {
 };
 
 const Home = () => {
-  const onLoad = (spline) => {
-    // Enable mouse controls for the 3D scene
-    console.log('Spline scene loaded and interactive!');
-  };
-
-  const onMouseDown = (e) => {
-    // Handle mouse down events on 3D objects
-    if (e.target.name) {
-      console.log('Clicked on:', e.target.name);
-    }
-  };
-
   return (
     <div className="hero">
       {/* Interactive Spline 3D Background */}
       <div className="spline-background">
-        <Spline
-          scene="https://prod.spline.design/rq6RUTakGP-XWNQ3/scene.splinecode"
-          onLoad={onLoad}
-          onMouseDown={onMouseDown}
-        />
+        <Spline scene="https://prod.spline.design/rq6RUTakGP-XWNQ3/scene.splinecode" />
       </div>
 
       <div className="hero-content">

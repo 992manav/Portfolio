@@ -49,13 +49,20 @@ const imageVariants = {
   },
 };
 
-const Home = () => {
+const Home = ({ splineReady }) => {
   return (
     <div className="hero">
-      {/* Interactive Spline 3D Background */}
-      <div className="spline-background">
-        <Spline scene="https://prod.spline.design/rq6RUTakGP-XWNQ3/scene.splinecode" />
-      </div>
+      {/* Interactive Spline 3D Background - Only render if preloaded */}
+      {splineReady && (
+        <motion.div 
+          className="spline-background"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.9 }}
+          transition={{ duration: 1, delay: 0.5 }}
+        >
+          <Spline scene="https://prod.spline.design/rq6RUTakGP-XWNQ3/scene.splinecode" />
+        </motion.div>
+      )}
 
       <div className="hero-content">
         {/* Profile Image */}

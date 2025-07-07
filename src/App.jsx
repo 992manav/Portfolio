@@ -10,27 +10,53 @@ import Cursor from "./components/Cursor/Cursor.jsx";
 import About from "./components/About/About.jsx";
 import Loader from "./components/Loader/Loader.jsx";
 import Tool from "./components/Tools/Tools.jsx";
+import SplinePreloader from "./components/SplinePreloader/SplinePreloader.jsx";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
+  const [splineLoaded, setSplineLoaded] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
+    // Minimum loading time of 3 seconds
+    const minLoadTime = setTimeout(() => {
+      if (splineLoaded) {
+        setLoading(false);
+      }
     }, 3000);
-    return () => clearTimeout(timer);
-  }, []);
+
+    // If Spline takes longer than 8 seconds, proceed anyway
+    const maxLoadTime = setTimeout(() => {
+      setLoading(false);
+    }, 8000);
+
+    return () => {
+      clearTimeout(minLoadTime);
+      clearTimeout(maxLoadTime);
+    };
+  }, [splineLoaded]);
+
+  // Handle when Spline finishes loading
+  const handleSplineLoad = () => {
+    setSplineLoaded(true);
+    // If minimum time has passed, hide loader
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+  };
 
   return (
     <div>
+      {/* Preload Spline in background */}
+      <SplinePreloader onLoad={handleSplineLoad} />
+      
       {loading ? (
-        <Loader />
+        <Loader splineLoaded={splineLoaded} />
       ) : (
         <>
           <Cursor />
           <section id="Home">
             <Navbar />
-            <Home />
+            <Home splineReady={splineLoaded} />
           </section>
 
           <section id="About">

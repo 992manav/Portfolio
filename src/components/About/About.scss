@@ -1,11 +1,44 @@
-.about-background {
+.spline-about-background {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, 
-    rgba(30, 30, 30, 0.8) 0%, 
-    rgba(50, 50, 50, 0.6) 50%, 
-    rgba(20, 20, 20, 0.9) 100%);
-  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.8;
+  pointer-events: auto; /* Enable mouse interaction with 3D scene */
+  cursor: grab; /* Show grab cursor to indicate interactivity */
+  user-select: none; /* Disable text selection */
+  overflow: hidden;
+}
+
+.spline-about-background:active {
+  cursor: grabbing; /* Show grabbing cursor when dragging */
+}
+
+/* Interactive hint for users */
+.spline-about-background::after {
+  content: "🎮 Interactive 3D Background";
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  z-index: 10;
+  opacity: 0.6;
+  animation: fadeInOut 4s infinite;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  user-select: none; /* Disable text selection for hint */
+  pointer-events: none; /* Prevent hint from blocking interactions */
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0.3; transform: scale(0.95); }
+  50% { opacity: 0.7; transform: scale(1); }
 }
 
 .about-me {
@@ -21,17 +54,29 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  z-index: 1;
+  z-index: 2; /* Ensure content is above Spline background */
+  pointer-events: none; /* Prevent content from blocking 3D interaction */
+  user-select: none; /* Disable text selection */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE/Edge */
 }
 
 .about-me-header {
   text-align: center;
   margin-bottom: 2rem;
+  position: relative;
+  z-index: 3;
+  pointer-events: none; /* Disable pointer events */
+  user-select: none; /* Disable text selection */
 }
 
 .about-me-header h1 {
   font-size: 2.5rem;
   margin: 0;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+  user-select: none; /* Disable text selection */
+  cursor: default; /* Force default cursor */
 }
 
 .about-me-introduction,
@@ -40,6 +85,15 @@
   text-align: left;
   width: 100%;
   max-width: 800px;
+  position: relative;
+  z-index: 3;
+  pointer-events: none; /* Disable pointer events */
+  user-select: none; /* Disable text selection */
+  background: rgba(0, 0, 0, 0.3); /* Semi-transparent background for better readability */
+  backdrop-filter: blur(10px); /* Blur effect */
+  padding: 1.5rem;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .about-me-introduction h2,
@@ -47,21 +101,28 @@
   font-size: 1.8rem;
   margin-bottom: 1rem;
   color: #deb887;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  user-select: none; /* Disable text selection */
+  cursor: default; /* Force default cursor */
 }
 
 .about-me-introduction ul,
 .about-me-education ul {
   list-style: none;
   padding: 0;
+  user-select: none; /* Disable text selection */
 }
 
 .about-me-introduction li,
 .about-me-education li {
-  pointer-events: auto;
+  pointer-events: none; /* Disable pointer events */
   margin-bottom: 1rem;
   line-height: 1.6;
   padding-left: 1rem;
   position: relative;
+  user-select: none; /* Disable text selection */
+  cursor: default; /* Force default cursor */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .about-me-introduction li:before,
@@ -70,9 +131,57 @@
   position: absolute;
   left: 0;
   color: #deb887;
+  user-select: none; /* Disable text selection */
+}
+
+/* Disable text selection for the entire About section */
+#About {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Prevent text cursor from appearing */
+#About, #About * {
+  cursor: default !important;
+}
+
+/* Override cursor for 3D background */
+.spline-about-background {
+  cursor: grab !important;
+}
+
+.spline-about-background:active {
+  cursor: grabbing !important;
+}
+
+/* Prevent context menu on right-click for cleaner interaction */
+#About {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 @media (max-width: 768px) {
+  .spline-about-background {
+    opacity: 0.5; /* Reduce opacity on mobile for better text readability */
+    pointer-events: auto; /* Keep interaction enabled on mobile */
+  }
+
+  .spline-about-background::after {
+    content: "👆 Tap to interact";
+    top: 10px;
+    left: 10px;
+    font-size: 0.65rem;
+    padding: 6px 10px;
+  }
+
   .about-me {
     height: auto;
     min-height: calc(100vh - 120px);
@@ -93,6 +202,8 @@
   .about-me-education {
     margin-bottom: 2rem;
     max-width: 100%;
+    padding: 1.2rem;
+    background: rgba(0, 0, 0, 0.5); /* Stronger background on mobile */
   }
 
   .about-me-introduction h2,
@@ -110,6 +221,18 @@
 }
 
 @media (max-width: 480px) {
+  .spline-about-background {
+    opacity: 0.4; /* Further reduce on small screens */
+  }
+
+  .spline-about-background::after {
+    content: "👆 Tap";
+    font-size: 0.6rem;
+    padding: 4px 8px;
+    top: 8px;
+    left: 8px;
+  }
+
   .about-me {
     padding: 1.5rem 1rem;
     font-size: 0.9rem;
@@ -128,6 +251,8 @@
   .about-me-introduction,
   .about-me-education {
     margin-bottom: 2rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.6); /* Even stronger background on small mobile */
   }
 
   .about-me-introduction h2,
@@ -146,6 +271,14 @@
 }
 
 @media (max-width: 375px) {
+  .spline-about-background {
+    opacity: 0.3; /* Minimal opacity for very small screens */
+  }
+
+  .spline-about-background::after {
+    display: none; /* Hide hint on very small screens */
+  }
+
   .about-me {
     padding: 1rem 0.8rem;
     min-height: calc(100vh - 100px);
@@ -153,6 +286,12 @@
 
   .about-me-header h1 {
     font-size: 1.6rem;
+  }
+
+  .about-me-introduction,
+  .about-me-education {
+    padding: 0.8rem;
+    background: rgba(0, 0, 0, 0.7); /* Strong background for readability */
   }
 
   .about-me-introduction h2,
@@ -166,4 +305,58 @@
     line-height: 1.4;
     margin-bottom: 0.8rem;
   }
+}
+
+/* Performance optimization for low-end devices */
+@media (max-width: 480px) and (max-height: 800px) {
+  .spline-about-background {
+    pointer-events: none; /* Disable interaction on very low-end devices */
+    opacity: 0.2;
+  }
+  
+  .about-me-introduction,
+  .about-me-education {
+    background: rgba(0, 0, 0, 0.8); /* Solid background for low-end devices */
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .spline-about-background {
+    pointer-events: none;
+    opacity: 0.3;
+  }
+  
+  .spline-about-background::after {
+    display: none;
+  }
+  
+  @keyframes fadeInOut {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .spline-about-background {
+    opacity: 0.2;
+  }
+  
+  .about-me-header h1 {
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.9);
+  }
+  
+  .about-me-introduction,
+  .about-me-education {
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Additional text selection prevention for all child elements */
+.about-me * {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
 }

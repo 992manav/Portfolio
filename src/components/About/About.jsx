@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Spline from '@splinetool/react-spline';
 import "./About.scss";
 
 const variants = {
@@ -62,6 +63,17 @@ const About = () => {
 
   return (
     <>
+      {/* Interactive Spline 3D Background */}
+      <motion.div 
+        className="spline-about-background"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 0.8 }}
+        transition={{ duration: 1.5, delay: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <Spline scene="https://prod.spline.design/SL0D3RQf1b1TUDkr/scene.splinecode" />
+      </motion.div>
+
       <motion.div
         className="about-me"
         initial="initial"
@@ -127,7 +139,6 @@ const About = () => {
           </ul>
         </motion.div>
       </motion.div>
-      <div className="about-background"></div>
     </>
   );
 };

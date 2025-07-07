@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Spline from '@splinetool/react-spline';
+import Spline from '@splinetool/react-spline/next';
 import "./Home.scss";
 import { Typewriter } from "react-simple-typewriter";
 
@@ -55,15 +55,7 @@ const Home = () => {
       {/* Spline 3D Background */}
       <div className="spline-background">
         <Spline
-          scene="https://prod.spline.design/rq6RUTakGP-XWNQ3/scene.splinecode"
-          style={{
-            width: '100%',
-            height: '100%',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            zIndex: 1,
-          }}
+          scene="https://prod.spline.design/rq6RUTakGP-XWNQ3/scene.splinecode" 
         />
       </div>
 

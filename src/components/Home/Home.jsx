@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Spline from '@splinetool/react-spline/next';
+import Spline from '@splinetool/react-spline';
 import "./Home.scss";
 import { Typewriter } from "react-simple-typewriter";
 

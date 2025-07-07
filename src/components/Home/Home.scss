@@ -76,8 +76,9 @@
   max-width: 50%;
   position: relative;
   z-index: 3;
-  pointer-events: auto; /* Re-enable pointer events for image */
+  pointer-events: none; /* Disable pointer events for image container */
   user-select: none; /* Disable text selection */
+  cursor: default; /* Force default cursor */
 }
 
 .profile-image {
@@ -87,14 +88,17 @@
   object-fit: contain;
   border-radius: 20px;
   filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.4));
-  transition: transform 0.3s ease;
+  transition: none; /* Remove hover transition */
   user-select: none; /* Disable image selection */
   -webkit-user-drag: none; /* Disable image dragging */
   -webkit-touch-callout: none; /* Disable iOS callout */
+  pointer-events: none; /* Disable all pointer events */
+  cursor: default; /* Force default cursor */
 }
 
+/* Remove hover effect from image */
 .profile-image:hover {
-  transform: scale(1.02);
+  transform: none; /* Remove scale effect */
 }
 
 .text-container {
@@ -118,11 +122,13 @@
   font-weight: bold;
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
   user-select: none; /* Disable text selection */
+  cursor: default; /* Force default cursor */
 }
 
 .role-text {
   margin: 1rem 0;
   user-select: none; /* Disable text selection */
+  cursor: default; /* Force default cursor */
 }
 
 .typewriter-container {
@@ -135,6 +141,7 @@
   align-items: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   user-select: none; /* Disable text selection */
+  cursor: default; /* Force default cursor */
 }
 
 .buttons {
@@ -241,6 +248,8 @@
     max-width: 100%;
     order: 1;
     flex: none;
+    pointer-events: none; /* Keep disabled on mobile */
+    cursor: default; /* Force default cursor */
   }
 
   .profile-image {
@@ -251,6 +260,9 @@
     border-radius: 50%;
     border: 4px solid burlywood;
     filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.6));
+    transition: none; /* Remove transition on mobile */
+    pointer-events: none; /* Keep disabled on mobile */
+    cursor: default; /* Force default cursor */
   }
 
   .text-container {
@@ -327,6 +339,8 @@
     max-width: 240px;
     height: 240px;
     border-width: 3px;
+    pointer-events: none; /* Keep disabled */
+    cursor: default; /* Force default cursor */
   }
 
   .text-container {
@@ -377,6 +391,8 @@
     width: 200px;
     max-width: 200px;
     height: 200px;
+    pointer-events: none; /* Keep disabled */
+    cursor: default; /* Force default cursor */
   }
 
   .text-container h1 {
@@ -422,6 +438,10 @@
   
   @keyframes pulseHint {
     0%, 100% { opacity: 0.3; transform: scale(1); }
+  }
+  
+  .profile-image {
+    transition: none; /* Remove all transitions */
   }
 }
 
@@ -474,4 +494,10 @@
 
 .spline-background:active {
   cursor: grabbing !important;
+}
+
+/* Force default cursor for image and container */
+.imageContainer,
+.profile-image {
+  cursor: default !important;
 }

@@ -71,7 +71,7 @@ const About = () => {
         transition={{ duration: 1.5, delay: 0.3 }}
         viewport={{ once: true, amount: 0.3 }}
       >
-        <Spline scene="https://prod.spline.design/SL0D3RQf1b1TUDkr/scene.splinecode" />
+      
       </motion.div>
 
       <motion.div

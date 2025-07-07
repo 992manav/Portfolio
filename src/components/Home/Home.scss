@@ -7,6 +7,10 @@
   justify-content: center;
   overflow: hidden;
   padding: 1rem;
+  user-select: none; /* Disable text selection */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE/Edge */
 }
 
 .spline-background {
@@ -19,6 +23,7 @@
   opacity: 0.9;
   pointer-events: auto; /* Enable mouse interaction with 3D scene */
   cursor: grab; /* Show grab cursor to indicate interactivity */
+  user-select: none; /* Disable text selection */
 }
 
 .spline-background:active {
@@ -41,6 +46,8 @@
   animation: pulseHint 3s infinite;
   backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  user-select: none; /* Disable text selection for hint */
+  pointer-events: none; /* Prevent hint from blocking interactions */
 }
 
 @keyframes pulseHint {
@@ -58,6 +65,7 @@
   position: relative;
   z-index: 2; /* Ensure content is above Spline background */
   pointer-events: none; /* Prevent content from blocking 3D interaction */
+  user-select: none; /* Disable text selection */
 }
 
 .imageContainer {
@@ -69,6 +77,7 @@
   position: relative;
   z-index: 3;
   pointer-events: auto; /* Re-enable pointer events for image */
+  user-select: none; /* Disable text selection */
 }
 
 .profile-image {
@@ -79,6 +88,9 @@
   border-radius: 20px;
   filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.4));
   transition: transform 0.3s ease;
+  user-select: none; /* Disable image selection */
+  -webkit-user-drag: none; /* Disable image dragging */
+  -webkit-touch-callout: none; /* Disable iOS callout */
 }
 
 .profile-image:hover {
@@ -94,6 +106,7 @@
   position: relative;
   z-index: 3;
   pointer-events: auto; /* Re-enable pointer events for text content */
+  user-select: none; /* Disable text selection */
 }
 
 .text-container h1 {
@@ -104,10 +117,12 @@
   line-height: 1.2;
   font-weight: bold;
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+  user-select: none; /* Disable text selection */
 }
 
 .role-text {
   margin: 1rem 0;
+  user-select: none; /* Disable text selection */
 }
 
 .typewriter-container {
@@ -119,16 +134,19 @@
   display: flex;
   align-items: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  user-select: none; /* Disable text selection */
 }
 
 .buttons {
   display: flex;
   gap: 1.5rem;
   margin-top: 1rem;
+  user-select: none; /* Disable text selection */
 }
 
 .buttons a {
   pointer-events: auto; /* Ensure buttons are clickable */
+  user-select: none; /* Disable text selection */
 }
 
 .buttons button {
@@ -146,6 +164,8 @@
   font-weight: 500;
   pointer-events: auto;
   border: 2px solid rgba(255, 255, 255, 0.3);
+  user-select: none; /* Disable text selection */
+  -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
 }
 
 .buttons button:hover {
@@ -154,6 +174,10 @@
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
   border-color: white;
+}
+
+.buttons button:focus {
+  outline: none; /* Remove focus outline since text selection is disabled */
 }
 
 /* Tablet Layout */
@@ -414,4 +438,40 @@
   .typewriter-container {
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
   }
+}
+
+/* Additional text selection prevention for all child elements */
+.hero * {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Prevent context menu on right-click for cleaner interaction */
+.hero {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Prevent text cursor from appearing */
+.hero, .hero * {
+  cursor: default;
+}
+
+/* Override cursor for interactive elements */
+.buttons button {
+  cursor: pointer !important;
+}
+
+.spline-background {
+  cursor: grab !important;
+}
+
+.spline-background:active {
+  cursor: grabbing !important;
 }

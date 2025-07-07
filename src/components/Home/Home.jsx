@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Spline from '@splinetool/react-spline';
 import "./Home.scss";
 import { Typewriter } from "react-simple-typewriter";
 
@@ -51,6 +52,21 @@ const imageVariants = {
 const Home = () => {
   return (
     <div className="hero">
+      {/* Spline 3D Background */}
+      <div className="spline-background">
+        <Spline
+          scene="https://prod.spline.design/rq6RUTakGP-XWNQ3/scene.splinecode"
+          style={{
+            width: '100%',
+            height: '100%',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            zIndex: 1,
+          }}
+        />
+      </div>
+
       <div className="hero-content">
         {/* Profile Image */}
         <motion.div

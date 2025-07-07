@@ -60,7 +60,7 @@ const Home = ({ splineReady }) => {
           animate={{ opacity: 0.9 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          <Spline scene="https://prod.spline.design/rq6RUTakGP-XWNQ3/scene.splinecode" />
+        
         </motion.div>
       )}
 

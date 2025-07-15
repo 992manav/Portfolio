@@ -62,12 +62,12 @@ const About = () => {
   const eduAnimationVariants = isMobile ? mobileVariants : eduvariants;
 
   return (
-    <>
+    <div style={{ position: 'relative', height: '100vh', overflow: 'hidden' }}>
       {/* Interactive Spline 3D Background */}
       <motion.div 
         className="spline-about-background"
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 0.8 }}
+        whileInView={{ opacity: 0.6 }}
         transition={{ duration: 1.5, delay: 0.3 }}
         viewport={{ once: true, amount: 0.3 }}
         style={{ pointerEvents: 'auto' }} // Ensure pointer events are enabled
@@ -148,7 +148,7 @@ const About = () => {
           </ul>
         </motion.div>
       </motion.div>
-    </>
+    </div>
   );
 };
 

@@ -4,8 +4,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
-  opacity: 0.8;
+  z-index: 0;
+  opacity: 0.6;
   pointer-events: auto !important; /* Force enable mouse interaction with 3D scene */
   cursor: grab; /* Show grab cursor to indicate interactivity */
   user-select: none; /* Disable text selection */
@@ -73,8 +73,8 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  z-index: 2; /* Ensure content is above Spline background */
-  pointer-events: none; /* Prevent content from blocking 3D interaction but allow passthrough */
+  z-index: 1; /* Ensure content is above Spline background */
+  pointer-events: none; /* Allow interaction to pass through to Spline */
   user-select: none; /* Disable text selection */
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */
@@ -108,14 +108,15 @@
   width: 100%;
   max-width: 800px;
   position: relative;
-  z-index: 3;
+  z-index: 2;
   pointer-events: none; /* Disable pointer events */
   user-select: none; /* Disable text selection */
-  background: rgba(0, 0, 0, 0.3); /* Semi-transparent background for better readability */
-  backdrop-filter: blur(10px); /* Blur effect */
+  background: rgba(0, 0, 0, 0.7); /* Stronger background for better readability */
+  backdrop-filter: blur(15px); /* Stronger blur effect */
   padding: 1.5rem;
   border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .about-me-introduction h2,

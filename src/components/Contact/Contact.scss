@@ -2,9 +2,71 @@
   font-size: 16px;
 }
 
+.spline-contact-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.6;
+  pointer-events: auto !important; /* Force enable mouse interaction with 3D scene */
+  cursor: grab; /* Show grab cursor to indicate interactivity */
+  user-select: none; /* Disable text selection */
+  overflow: hidden;
+  
+  /* Ensure all child elements of Spline can receive pointer events */
+  * {
+    pointer-events: auto !important;
+    user-select: none !important;
+  }
+  
+  /* Specifically target Spline canvas and interactive elements */
+  canvas,
+  div,
+  svg {
+    pointer-events: auto !important;
+    cursor: grab !important;
+  }
+  
+  canvas:active,
+  div:active {
+    cursor: grabbing !important;
+  }
+}
+
+.spline-contact-background:active {
+  cursor: grabbing; /* Show grabbing cursor when dragging */
+}
+
+/* Interactive hint for users */
+.spline-contact-background::after {
+  content: "🎨 Interactive 3D Contact Background";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  z-index: 10;
+  opacity: 0.6;
+  animation: contactPulse 4s infinite;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  user-select: none; /* Disable text selection for hint */
+  pointer-events: none; /* Prevent hint from blocking interactions */
+}
+
+@keyframes contactPulse {
+  0%, 100% { opacity: 0.3; transform: scale(0.95); }
+  50% { opacity: 0.7; transform: scale(1); }
+}
+
 .contact {
   background-color: inherit;
-  height: 100vh;
+  height: 100%;
   margin: auto;
   max-width: 1366px;
   display: flex;
@@ -14,6 +76,13 @@
   box-sizing: border-box;
   overflow: hidden;
   gap: 2rem;
+  position: relative;
+  z-index: 1; /* Ensure content is above Spline background */
+  pointer-events: none; /* Allow interaction to pass through to Spline */
+  user-select: none; /* Disable text selection */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE/Edge */
 }
 
 .contact .textContainer {
@@ -23,39 +92,63 @@
   padding: 1.25rem;
   box-sizing: border-box;
   flex: 1;
+  background: rgba(0, 0, 0, 0.7); /* Stronger background for better readability */
+  backdrop-filter: blur(15px); /* Stronger blur effect */
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  pointer-events: none; /* Disable pointer events */
+  user-select: none; /* Disable text selection */
 }
 
 .contact .textContainer h1 {
   font-size: 3.125rem;
   margin: 0;
   color: #fff;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+  user-select: none; /* Disable text selection */
+  cursor: default; /* Force default cursor */
 }
 
 .contact .textContainer .items {
   margin-bottom: 1rem;
+  user-select: none; /* Disable text selection */
 }
 
 .contact .textContainer .items h2 {
   font-size: 1.2rem;
   color: #deb887;
   margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  user-select: none; /* Disable text selection */
+  cursor: default; /* Force default cursor */
 }
 
 .contact .textContainer .items p {
   font-size: 1rem;
   color: #ccc;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  user-select: none; /* Disable text selection */
+  cursor: default; /* Force default cursor */
 }
 
 .contact .FormContainer {
   flex: 1;
   padding: 1.25rem;
   box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.7); /* Stronger background for better readability */
+  backdrop-filter: blur(15px); /* Stronger blur effect */
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  pointer-events: auto; /* Re-enable pointer events for form */
 }
 
 .contact .FormContainer form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  pointer-events: auto; /* Re-enable pointer events for form */
 }
 
 .contact .FormContainer input[type="text"],
@@ -71,6 +164,8 @@
   transition: border-color 0.3s, box-shadow 0.3s;
   width: 100%;
   box-sizing: border-box;
+  pointer-events: auto; /* Re-enable pointer events for inputs */
+  user-select: text; /* Allow text selection in form fields */
 }
 
 .contact .FormContainer textarea {
@@ -96,6 +191,9 @@
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
   width: 100%;
+  pointer-events: auto; /* Re-enable pointer events for button */
+  cursor: pointer; /* Show pointer cursor for button */
+  user-select: none; /* Disable text selection for button */
 }
 
 .contact .FormContainer button[type="submit"]:hover {
@@ -103,7 +201,79 @@
   transform: translateY(-2px);
 }
 
+/* Disable text selection for the entire Contact section */
+#Contacts {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Prevent text cursor from appearing except for form fields */
+#Contacts, #Contacts * {
+  cursor: default !important;
+}
+
+/* Override cursor for interactive elements */
+.contact .FormContainer input,
+.contact .FormContainer textarea {
+  cursor: text !important;
+}
+
+.contact .FormContainer button {
+  cursor: pointer !important;
+}
+
+/* Override cursor for 3D background */
+.spline-contact-background {
+  cursor: grab !important;
+}
+
+.spline-contact-background:active {
+  cursor: grabbing !important;
+}
+
+/* Prevent context menu on right-click for cleaner interaction */
+#Contacts {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Additional text selection prevention for all child elements except form fields */
+.contact * {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+}
+
+/* Allow text selection only in form fields */
+.contact .FormContainer input,
+.contact .FormContainer textarea {
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+}
+
 @media (max-width: 1024px) {
+  .spline-contact-background {
+    opacity: 0.5; /* Reduce opacity on tablet for better text readability */
+  }
+
+  .spline-contact-background::after {
+    font-size: 0.7rem;
+    padding: 6px 10px;
+    top: 15px;
+    right: 15px;
+  }
+
   .contact {
     padding: 1.5rem;
     max-width: 100%;
@@ -115,6 +285,19 @@
 }
 
 @media (max-width: 768px) {
+  .spline-contact-background {
+    opacity: 0.4; /* Further reduce on mobile for better text readability */
+    pointer-events: auto; /* Keep interaction enabled on mobile */
+  }
+
+  .spline-contact-background::after {
+    content: "👆 Tap to interact";
+    top: 10px;
+    right: 10px;
+    font-size: 0.65rem;
+    padding: 6px 10px;
+  }
+
   .contact {
     flex-direction: column;
     align-items: stretch;
@@ -129,6 +312,7 @@
   .contact .FormContainer {
     flex: none;
     width: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Stronger background on mobile */
   }
 
   .contact .textContainer {
@@ -180,6 +364,18 @@
 }
 
 @media (max-width: 480px) {
+  .spline-contact-background {
+    opacity: 0.3; /* Minimal opacity for very small screens */
+  }
+
+  .spline-contact-background::after {
+    content: "👆 Tap";
+    font-size: 0.6rem;
+    padding: 4px 8px;
+    top: 8px;
+    right: 8px;
+  }
+
   .contact {
     padding: 1.5rem 0.5rem;
     gap: 1rem;
@@ -213,6 +409,57 @@
 
   .contact .FormContainer form {
     gap: 1rem;
+  }
+
+  .contact .textContainer,
+  .contact .FormContainer {
+    background: rgba(0, 0, 0, 0.9); /* Very strong background on small mobile */
+  }
+}
+
+/* Performance optimization for low-end devices */
+@media (max-width: 480px) and (max-height: 800px) {
+  .spline-contact-background {
+    pointer-events: none; /* Disable interaction on very low-end devices */
+    opacity: 0.2;
+  }
+  
+  .contact .textContainer,
+  .contact .FormContainer {
+    background: rgba(0, 0, 0, 0.95); /* Solid background for low-end devices */
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .spline-contact-background {
+    pointer-events: none;
+    opacity: 0.3;
+  }
+  
+  .spline-contact-background::after {
+    display: none;
+  }
+  
+  @keyframes contactPulse {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .spline-contact-background {
+    opacity: 0.2;
+  }
+  
+  .contact .textContainer h1 {
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.9);
+  }
+  
+  .contact .textContainer,
+  .contact .FormContainer {
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.3);
   }
 
   .contact .FormContainer input[type="text"],

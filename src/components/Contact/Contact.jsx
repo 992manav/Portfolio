@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
+import Spline from '@splinetool/react-spline';
 import "./Contact.scss";
 
 const Contact = () => {
@@ -41,53 +42,75 @@ const Contact = () => {
   };
 
   return (
-    <motion.div
-      className="contact"
-      initial="initial"
-      whileInView="animate"
-      variants={variants}
-    >
-      <motion.div className="textContainer" variants={variants}>
-        <motion.h1 variants={variants}>Let's Work Together</motion.h1>
-        <motion.div className="items" variants={variants}>
-          <h2>Mail</h2>
-          <p>23ucs639@lnmiit.ac.in</p>
-        </motion.div>
-        <motion.div className="items" variants={variants}>
-          <h2>Address</h2>
-          <p>Lnmiit, Jaipur</p>
-        </motion.div>
-        <motion.div className="items" variants={variants}>
-          <h2>Phone</h2>
-          <p>9328947223</p>
-        </motion.div>
+    <div style={{ position: 'relative', height: '100vh', overflow: 'hidden' }}>
+      {/* Interactive Spline 3D Background */}
+      <motion.div 
+        className="spline-contact-background"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 0.6 }}
+        transition={{ duration: 1.5, delay: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
+        style={{ pointerEvents: 'auto' }}
+      >
+        <Spline 
+          scene="https://prod.spline.design/rq6RUTakGP-XWNQ3/scene.splinecode"
+          style={{ 
+            width: '100%', 
+            height: '100%',
+            pointerEvents: 'auto',
+            cursor: 'grab'
+          }}
+        />
       </motion.div>
 
-      <motion.div className="FormContainer" variants={variants}>
-        <form ref={form} onSubmit={sendEmail}>
-          <motion.input
-            type="text"
-            name="user_name"
-            placeholder="Your Name"
-            variants={variants}
-          />
-          <motion.input
-            type="email"
-            name="user_email"
-            placeholder="Your Email"
-            variants={variants}
-          />
-          <motion.textarea
-            name="message"
-            placeholder="Message"
-            variants={variants}
-          />
-          <motion.button type="submit" variants={variants}>
-            Send
-          </motion.button>
-        </form>
+      <motion.div
+        className="contact"
+        initial="initial"
+        whileInView="animate"
+        variants={variants}
+      >
+        <motion.div className="textContainer" variants={variants}>
+          <motion.h1 variants={variants}>Let's Work Together</motion.h1>
+          <motion.div className="items" variants={variants}>
+            <h2>Mail</h2>
+            <p>23ucs639@lnmiit.ac.in</p>
+          </motion.div>
+          <motion.div className="items" variants={variants}>
+            <h2>Address</h2>
+            <p>Lnmiit, Jaipur</p>
+          </motion.div>
+          <motion.div className="items" variants={variants}>
+            <h2>Phone</h2>
+            <p>9328947223</p>
+          </motion.div>
+        </motion.div>
+
+        <motion.div className="FormContainer" variants={variants}>
+          <form ref={form} onSubmit={sendEmail}>
+            <motion.input
+              type="text"
+              name="user_name"
+              placeholder="Your Name"
+              variants={variants}
+            />
+            <motion.input
+              type="email"
+              name="user_email"
+              placeholder="Your Email"
+              variants={variants}
+            />
+            <motion.textarea
+              name="message"
+              placeholder="Message"
+              variants={variants}
+            />
+            <motion.button type="submit" variants={variants}>
+              Send
+            </motion.button>
+          </form>
+        </motion.div>
       </motion.div>
-    </motion.div>
+    </div>
   );
 };
 

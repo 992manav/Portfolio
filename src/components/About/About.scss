@@ -6,10 +6,29 @@
   height: 100%;
   z-index: 1;
   opacity: 0.8;
-  pointer-events: auto; /* Enable mouse interaction with 3D scene */
+  pointer-events: auto !important; /* Force enable mouse interaction with 3D scene */
   cursor: grab; /* Show grab cursor to indicate interactivity */
   user-select: none; /* Disable text selection */
   overflow: hidden;
+  
+  /* Ensure all child elements of Spline can receive pointer events */
+  * {
+    pointer-events: auto !important;
+    user-select: none !important;
+  }
+  
+  /* Specifically target Spline canvas and interactive elements */
+  canvas,
+  div,
+  svg {
+    pointer-events: auto !important;
+    cursor: grab !important;
+  }
+  
+  canvas:active,
+  div:active {
+    cursor: grabbing !important;
+  }
 }
 
 .spline-about-background:active {
@@ -55,11 +74,14 @@
   align-items: center;
   position: relative;
   z-index: 2; /* Ensure content is above Spline background */
-  pointer-events: none; /* Prevent content from blocking 3D interaction */
+  pointer-events: none; /* Prevent content from blocking 3D interaction but allow passthrough */
   user-select: none; /* Disable text selection */
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE/Edge */
+  
+  /* Allow pointer events to pass through to Spline background */
+  pointer-events: none;
 }
 
 .about-me-header {

@@ -70,8 +70,17 @@ const About = () => {
         whileInView={{ opacity: 0.8 }}
         transition={{ duration: 1.5, delay: 0.3 }}
         viewport={{ once: true, amount: 0.3 }}
+        style={{ pointerEvents: 'auto' }} // Ensure pointer events are enabled
       >
-      
+        <Spline 
+          scene="https://prod.spline.design/SL0D3RQf1b1TUDkr/scene.splinecode"
+          style={{ 
+            width: '100%', 
+            height: '100%',
+            pointerEvents: 'auto',
+            cursor: 'grab'
+          }}
+        />
       </motion.div>
 
       <motion.div
